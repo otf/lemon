@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Compile Include="Sample.fs" />
+    <Compile Include="UrlPatternMatchTest.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lemon\Lemon.fsproj">

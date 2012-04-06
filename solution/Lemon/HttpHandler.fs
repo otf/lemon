@@ -16,7 +16,7 @@ type HttpHandler() =
   interface  IHttpHandler with
     member x.IsReusable = true
     member x.ProcessRequest(ctx: HttpContext) = 
-      let server = importServer <| ctx.Server.MapPath("bin")
+      let server = importServer <| ctx.Server.MapPath("~/bin")
       server ctx.Request ctx.Response |> ignore
 
 

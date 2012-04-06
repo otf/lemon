@@ -7,7 +7,9 @@ module Server
  
   [<Export>]
   let (server:Server) = function
-      | GET (url , headers) -> response "12" >> ok >> setHeader "content-type" "text/plain"
+      | GET (URL ["products"; id] , headers) -> 
+          let product = "<product id=\"" + id + "\"/>"
+          response product >> ok >> setHeader "content-type" "text/plain"
       | POST (url, headers, body) -> readXml body |> xmlResponse
       | _ -> ok
 
