@@ -1,10 +1,10 @@
-﻿lemon - Functional Http Handler
+Lemon - Functional Http Handler
 ===
 
 HTTP で XML をやり取りするような簡単な WebAPI を構築するとしましょう。
 ASP.NET や WCF はどうでしょうか？
 複雑な Web.config や、使いづらい HttpRequest や型安全でない UriTemplate はいつでも私たちを悩ませます。
-lemon はこのようなコンテキストに対して最適なソリューションです。
+Lemon はこのようなコンテキストに対して最適なソリューションです。
 
 特徴
 ---
