@@ -44,8 +44,3 @@ module Http =
 
   let ok = setStatusCode 200
   let noContent = setStatusCode 204
-  [<Export("aaa")>]
-  let exserver = function
-      | GET (url , headers) -> response "12" >> ok >> setHeader "content-type" "text/plain"
-      | POST (url, headers, body) -> readXml body |> xmlResponse
-      | _ -> ok

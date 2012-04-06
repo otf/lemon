@@ -4,18 +4,21 @@ open System.Linq
 open System.Web
 open System.ComponentModel.Composition
 open System.ComponentModel.Composition.Hosting
-
-open System.ComponentModel.Composition.Primitives
 open Http
 
 type Server = HttpRequest -> Response
 
 type HttpHandler() =
-  [<Import("aaa")>]
-  let mutable server = Unchecked.defaultof<Server>
+
+  let importServer path =
+    use dirCatalog = new DirectoryCatalog (path)
+    use con = new CompositionContainer (dirCatalog) 
+    con.GetExportedValues<Server>() |> Seq.nth 0
+
   interface  IHttpHandler with
     member x.IsReusable = true
     member x.ProcessRequest(ctx: HttpContext) = 
+      let server = importServer <| ctx.Server.MapPath("bin")
       server ctx.Request ctx.Response |> ignore
 
 
