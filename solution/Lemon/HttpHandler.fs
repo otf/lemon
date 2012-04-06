@@ -6,8 +6,6 @@ open System.ComponentModel.Composition
 open System.ComponentModel.Composition.Hosting
 open Http
 
-type Server = HttpRequest -> Response
-
 type HttpHandler() =
 
   let importServer path =

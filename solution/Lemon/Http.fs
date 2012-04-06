@@ -6,6 +6,9 @@ module Http =
   open System.Xml.Linq
   open System.ComponentModel.Composition
 
+  
+  type Server = HttpRequest -> HttpResponse -> HttpResponse
+
   let readHeaders (rawHeaders: System.Collections.Specialized.NameValueCollection)  =
     [ for key in rawHeaders.Keys -> (key , rawHeaders.[key])]
 
