@@ -9,7 +9,7 @@ lemon はこのようなコンテキストに対して最適なソリューシ�
 特徴
 ---
 このライブラリを使うことで下記のようなメリットが得られます。
-・シンプルな Web.config
+# シンプルな Web.config
 
     <?xml version="1.0"?>
     <configuration>
@@ -21,7 +21,7 @@ lemon はこのようなコンテキストに対して最適なソリューシ�
     </configuration>
 これは、たった8行の1度だけ書けばよいWeb.configです。
 
-* 関数による Server の定義
+# 関数による Server の定義
 
     [<Export>]
     let (server:Server) = function
@@ -29,6 +29,6 @@ lemon はこのようなコンテキストに対して最適なソリューシ�
       | POST (url, headers, body) -> readXml body |> xmlResponse
       | _ -> ok
 
-* HTTP Request に対してのパターンマッチ
-* コンビネータによる簡単な HTTP Response の生成
-* .NET Framework 2.0で動作します。（未実装）
+# HTTP Request に対してのパターンマッチ
+# コンビネータによる簡単な HTTP Response の生成
+# .NET Framework 2.0で動作します。（未実装）
