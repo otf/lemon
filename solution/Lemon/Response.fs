@@ -21,14 +21,16 @@ module Response =
   let methodNotAllowed = setStatusCode 405
   let internalServerError = setStatusCode 500
 
-  let response (body:string) (resp: HttpResponse) = 
-    resp.Write body
-    resp
-    
-  let xmlResponse (body:XElement) = body.ToString () |> response
-
-  let jsonResponse (body:JsonValue) = body.ToString () |> response
-
   let setHeader name value (resp:HttpResponse) =
     resp.AddHeader (name, value)
     resp
+
+  let response (body:string) (resp: HttpResponse) = 
+    resp.Write body
+    resp
+
+  let xmlResponse (body:XElement) = 
+    body.ToString () |> response >> setHeader "Content-Type" "application/xml"
+
+  let jsonResponse (body:JsonValue) = 
+    body.ToString () |> response >> setHeader "Content-Type" "application/json"

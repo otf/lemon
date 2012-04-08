@@ -9,19 +9,21 @@
  
   [<Export>]
   let (server:Server) = function
-      | GET(req) -> match req with
-        | URL ["xml"; model; id] ->
-          let modelXml = sprintf "<%s id=\"%s\"/>" model id
-          response modelXml >> ok >> setHeader "Content-Type" "text/xml"
+      | GET(req) -> 
+        match req with
+          | URL ["xml"; model; id] ->
+            let modelXml = sprintf "<%s id=\"%s\"/>" model id
+            response modelXml >> ok
 
-        | URL ["json"; model; id] ->
-          let modelJson = sprintf "{\"name\":\"%s\", \"id\":\"%s\" }" model id |> JsonValue.Parse
-          jsonResponse modelJson >> ok >> setHeader "Content-Type" "text/json"
+          | URL ["json"; model; id] ->
+            let modelJson = sprintf "{\"name\":\"%s\", \"id\":\"%s\" }" model id |> JsonValue.Parse
+            jsonResponse modelJson >> ok
 
-        | _ -> ok
+          | _ -> ok
 
       | POST (req, body) & Headers (headers) 
-        when List.exists ((=) ("Content-Type", "text/xml")) headers
+        when List.exists ((=) ("Content-Type", "application/xml")) headers
           -> readXml body |> xmlResponse
+
       | _ -> methodNotAllowed
 
