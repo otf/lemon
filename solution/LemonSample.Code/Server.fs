@@ -3,7 +3,6 @@
   open Lemon
   open Lemon.Request
   open Lemon.Response
-  open System.Web
   open System.ComponentModel.Composition
   open System.Json
  
