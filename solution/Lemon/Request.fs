@@ -9,7 +9,7 @@ module Request =
   
   type Server = HttpRequest -> HttpResponse -> HttpResponse
 
-  let readHeaders (rawHeaders: System.Collections.Specialized.NameValueCollection)  =
+  let nameValueCollections2List (rawHeaders: System.Collections.Specialized.NameValueCollection)  =
     [ for key in rawHeaders.Keys -> (key , rawHeaders.[key])]
 
   let existHeader (name:string) (headers:(string * string) list) = List.exists (fun kvp -> fst kvp = name) headers
@@ -21,6 +21,12 @@ module Request =
   let (|URL|_|) (req:HttpRequest) =
     let pathes = req.RawUrl.Split ([| "/" |], StringSplitOptions.RemoveEmptyEntries)
     Some <| List.ofArray pathes
+
+  let (|Params|) (req:HttpRequest) =
+    req.Params |> nameValueCollections2List
+
+  let (|Headers|) (req:HttpRequest) =
+    req.Headers |> nameValueCollections2List
 
   let (|GET|_|) (req:HttpRequest) =
     if req.HttpMethod = "GET" then

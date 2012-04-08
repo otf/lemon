@@ -8,9 +8,14 @@
  
   [<Export>]
   let (server:Server) = function
-      | GET (URL ["products"; id]) -> 
-          let product = "<product id=\"" + id + "\"/>"
-          response product >> ok >> setHeader "content-type" "text/plain"
-      | POST (req, body) & URL ([]) -> readXml body |> xmlResponse
-      | _ -> ok
+      | GET(req) -> match req with
+        | URL [model; id] ->
+          let modelXml = sprintf "<%s id=\"%s\"/>" model id
+          response modelXml >> ok >> setHeader "Content-Type" "text/xml"
+        | _ -> ok
+
+      | POST (req, body) & Headers (headers) 
+        when List.exists ((=) ("Content-Type", "text/xml")) headers
+          -> readXml body |> xmlResponse
+      | _ -> methodNotAllowed
 

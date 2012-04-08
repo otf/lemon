@@ -16,6 +16,10 @@ module Request =
   val (|PUT|_|) : HttpRequest -> (HttpRequest * Stream) option
 
   val (|DELETE|_|) : HttpRequest -> HttpRequest option
+
+  val (|Params|) : HttpRequest -> (string * string) list
+
+  val (|Headers|) : HttpRequest -> (string * string) list
  
   val existHeader : string -> (string * string) list -> bool
 
