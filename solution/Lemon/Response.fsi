@@ -12,7 +12,7 @@ module Response =
   val ok : Responser
   val noContent : Responser
   val notFound : Responser
-  val methodNotAllowd : Responser
+  val methodNotAllowed : Responser
   val internalServerError : Responser
   val response : string -> Responser
   val xmlResponse : XElement -> Responser
