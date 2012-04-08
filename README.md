@@ -11,7 +11,7 @@ Lemon はこのようなコンテキストに対して最適なソリューシ�
 このライブラリを使うことで下記のようなメリットが得られます。
 
 * シンプルな Web.config
-* 関数による Server の定義
+* 関数による [Server](https://github.com/otf/lemon/blob/master/solution/LemonSample.Code/Server.fs "Server.fs") の定義
 * HTTP Request に対してのパターンマッチ
 * コンビネータによる簡単な HTTP Response の生成
 * .NET Framework 2.0で動作します。（未実装）
