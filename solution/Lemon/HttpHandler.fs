@@ -4,7 +4,8 @@ open System.Linq
 open System.Web
 open System.ComponentModel.Composition
 open System.ComponentModel.Composition.Hosting
-open Http
+open Request
+open Response
 
 type HttpHandler() =
 

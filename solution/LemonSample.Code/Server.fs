@@ -1,7 +1,7 @@
-﻿// Learn more about F# at http://fsharp.net
+﻿module Server
 
-module Server
-  open Lemon.Http
+  open Lemon
+  open Lemon.Request
   open Lemon.Response
   open System.Web
   open System.ComponentModel.Composition

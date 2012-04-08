@@ -1,6 +1,6 @@
 ﻿namespace Lemon
 
-module Http =
+module Request =
   open System
   open System.IO
   open System.Web
@@ -34,18 +34,3 @@ module Http =
     else
       None
     
-  type Response = HttpResponse -> HttpResponse
-
-  let response (body:string) (resp: HttpResponse) = 
-    resp.Write body
-    resp
-    
-  let xmlResponse (body:XElement) = body.ToString () |> response
-
-  let setStatusCode code (resp: HttpResponse) =
-    resp.StatusCode <- code
-    resp
-
-  let setHeader name value (resp:HttpResponse) =
-    resp.AddHeader (name, value)
-    resp

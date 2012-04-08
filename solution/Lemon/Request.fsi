@@ -5,10 +5,7 @@ open System.IO
 open System.Web
 open System.Xml.Linq
 
-module Http =
-  type Response = HttpResponse -> HttpResponse
-
-  type Server = HttpRequest -> HttpResponse -> HttpResponse
+module Request =
 
   val (|URL|_|) : HttpRequest -> string list option
 
@@ -21,12 +18,3 @@ module Http =
   val readText : Stream -> string
 
   val readXml : Stream -> XElement
-
-  val response : string -> Response
-
-  val xmlResponse : XElement -> Response
-
-  val setStatusCode : int -> Response
-
-  val setHeader : string -> string -> Response
-

@@ -4,12 +4,18 @@ open System
 open System.IO
 open System.Web
 open System.Xml.Linq
-open Http
 
 module Response =
 
-  val ok : Response
-  val noContent : Response
-  val notFound : Response
-  val methodNotAllowd : Response
-  val internalServerError : Response
+  type Responser = HttpResponse -> HttpResponse
+
+  val ok : Responser
+  val noContent : Responser
+  val notFound : Responser
+  val methodNotAllowd : Responser
+  val internalServerError : Responser
+  val response : string -> Responser
+  val xmlResponse : XElement -> Responser
+  val setStatusCode : int -> Responser
+  val setHeader : string -> string -> Responser
+
