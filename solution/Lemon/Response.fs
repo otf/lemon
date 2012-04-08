@@ -4,6 +4,7 @@ open System
 open System.IO
 open System.Web
 open System.Xml.Linq
+open System.Json
 open Request
 
 module Response =
@@ -25,6 +26,8 @@ module Response =
     resp
     
   let xmlResponse (body:XElement) = body.ToString () |> response
+
+  let jsonResponse (body:JsonValue) = body.ToString () |> response
 
   let setHeader name value (resp:HttpResponse) =
     resp.AddHeader (name, value)
