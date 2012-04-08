@@ -33,4 +33,16 @@ module Request =
       Some (req, req.InputStream)
     else
       None
+
+  let (|PUT|_|) (req:HttpRequest) =
+    if req.HttpMethod = "PUT" then
+      Some (req, req.InputStream)
+    else
+      None
+
+  let (|DELETE|_|) (req:HttpRequest) =
+    if req.HttpMethod = "DELETE" then
+      Some req
+    else
+      None
     
