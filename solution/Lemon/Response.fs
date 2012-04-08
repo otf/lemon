@@ -17,7 +17,7 @@ module Response =
   let ok = setStatusCode 200
   let noContent = setStatusCode 204
   let notFound = setStatusCode 404
-  let methodNotAllowd = setStatusCode 405
+  let methodNotAllowed = setStatusCode 405
   let internalServerError = setStatusCode 500
 
   let response (body:string) (resp: HttpResponse) = 
@@ -25,8 +25,6 @@ module Response =
     resp
     
   let xmlResponse (body:XElement) = body.ToString () |> response
-
-
 
   let setHeader name value (resp:HttpResponse) =
     resp.AddHeader (name, value)
