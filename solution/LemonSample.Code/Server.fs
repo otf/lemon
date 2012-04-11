@@ -3,10 +3,14 @@
   open Lemon
   open Lemon.Request
   open Lemon.Response
-  open System.ComponentModel.Composition
+  open System.IO
   open System.Json
+  
+  let readJson (st:Stream) = readText st |> JsonValue.Parse
+
+  let jsonResponse (body:JsonValue) = 
+    body.ToString () |> response >> setHeader "Content-Type" "application/json"
  
-  [<Export>]
   let (server:Server) = function
       | GET(req) -> 
         match req with
@@ -25,4 +29,3 @@
           -> readXml body |> xmlResponse
 
       | _ -> methodNotAllowed
-

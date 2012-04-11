@@ -4,7 +4,6 @@ open System
 open System.IO
 open System.Web
 open System.Xml.Linq
-open System.Json
 
 module Request =
 
@@ -27,5 +26,3 @@ module Request =
   val readText : Stream -> string
 
   val readXml : Stream -> XElement
-
-  val readJson : Stream -> JsonValue

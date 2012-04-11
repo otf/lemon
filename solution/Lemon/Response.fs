@@ -4,7 +4,6 @@ open System
 open System.IO
 open System.Web
 open System.Xml.Linq
-open System.Json
 open Request
 
 module Response =
@@ -31,6 +30,3 @@ module Response =
 
   let xmlResponse (body:XElement) = 
     body.ToString () |> response >> setHeader "Content-Type" "application/xml"
-
-  let jsonResponse (body:JsonValue) = 
-    body.ToString () |> response >> setHeader "Content-Type" "application/json"
