@@ -17,7 +17,7 @@ module Request =
 
   let readXml  (st:Stream) = readText st |> XElement.Parse
 
-  let (|URL|_|) (req:HttpRequest) =
+  let (|Url|_|) (req:HttpRequest) =
     let pathes = req.Url.LocalPath.Split ([| "/" |], StringSplitOptions.RemoveEmptyEntries)
     Some <| List.ofArray pathes
 

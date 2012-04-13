@@ -14,11 +14,11 @@
   let (server:Server) = function
       | GET(req) -> 
         match req with
-          | URL ["xml"; model; id] ->
+          | Url ["xml"; model; id] ->
             let modelXml = sprintf "<%s id=\"%s\"/>" model id
             response modelXml >> ok
 
-          | URL ["json"; model; id] ->
+          | Url ["json"; model; id] ->
             let modelJson = sprintf "{\"name\":\"%s\", \"id\":\"%s\" }" model id |> JsonValue.Parse
             jsonResponse modelJson >> ok
 
