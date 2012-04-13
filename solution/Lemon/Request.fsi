@@ -7,7 +7,13 @@ open System.Xml.Linq
 
 module Request =
 
-  val (|Url|_|) : HttpRequest -> string list option
+  val (|Has|_|) : string -> (string * string) list -> string option
+
+  val (|Last|_|) : string list -> string option
+
+  val (|RawUrl|) : HttpRequest -> string
+
+  val (|Url|) : HttpRequest -> string list
 
   val (|GET|_|) : HttpRequest -> HttpRequest option
 

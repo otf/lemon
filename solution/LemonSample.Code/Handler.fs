@@ -2,5 +2,5 @@
 
 open Server
   
-  type Handler () =
-    inherit Lemon.HttpHandler(server)
+type Handler () =
+  inherit Lemon.HttpHandler(server)

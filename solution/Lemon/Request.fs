@@ -17,9 +17,24 @@ module Request =
 
   let readXml  (st:Stream) = readText st |> XElement.Parse
 
-  let (|Url|_|) (req:HttpRequest) =
+  let (|Has|_|) key (kvp : (string * string) list) =
+    let kvp = dict kvp
+    if kvp.ContainsKey key then
+      kvp.[key] |> Some
+    else
+      None
+
+  let (|Last|_|) (pathes:string list) =
+   if not <| List.isEmpty pathes then
+     List.rev pathes |> List.head |> Some
+   else
+     None
+
+  let (|RawUrl|) (req:HttpRequest) = req.RawUrl
+
+  let (|Url|) (req:HttpRequest) =
     let pathes = req.Url.LocalPath.Split ([| "/" |], StringSplitOptions.RemoveEmptyEntries)
-    Some <| List.ofArray pathes
+    List.ofArray pathes
 
   let (|Params|) (req:HttpRequest) =
     req.Params |> nameValueCollections2List
