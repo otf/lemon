@@ -12,17 +12,13 @@
     body.ToString () |> response >> setHeader "Content-Type" "application/json"
  
   let (server:Server) = function
-      | GET(req) -> 
-        match req with
-          | Url ["xml"; model; id] ->
-            let modelXml = sprintf "<%s id=\"%s\"/>" model id
-            response modelXml >> ok
+      | GET(Url ["xml"; model; id]) -> 
+          let modelXml = sprintf "<%s id=\"%s\"/>" model id
+          response modelXml >> ok
 
-          | Url ["json"; model; id] ->
-            let modelJson = sprintf "{\"name\":\"%s\", \"id\":\"%s\" }" model id |> JsonValue.Parse
-            jsonResponse modelJson >> ok
-
-          | _ -> ok
+      | GET(Url ["json"; model; id]) ->
+          let modelJson = sprintf "{\"name\":\"%s\", \"id\":\"%s\" }" model id |> JsonValue.Parse
+          jsonResponse modelJson >> ok
 
       | POST (req, body) & Headers (headers) 
         when List.exists ((=) ("Content-Type", "application/xml")) headers
