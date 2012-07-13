@@ -38,6 +38,9 @@ module Request =
 
   let (|Params|) (req:HttpRequest) =
     req.Params |> nameValueCollections2List
+  
+  let (|FormParams|) (stream:Stream) =
+      readText stream |> HttpUtility.ParseQueryString |> nameValueCollections2List
 
   let (|Headers|) (req:HttpRequest) =
     req.Headers |> nameValueCollections2List

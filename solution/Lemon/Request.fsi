@@ -24,6 +24,8 @@ module Request =
   val (|DELETE|_|) : HttpRequest -> HttpRequest option
 
   val (|Params|) : HttpRequest -> (string * string) list
+  
+  val (|FormParams|) : Stream -> (string * string) list
 
   val (|Headers|) : HttpRequest -> (string * string) list
  
