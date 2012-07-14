@@ -17,6 +17,8 @@ module Request =
 
   let readXml  (st:Stream) = readText st |> XElement.Parse
 
+  let readParameters (st:Stream) = readText st |> HttpUtility.ParseQueryString |> nameValueCollections2List
+
   let (|Has|_|) key (kvp : (string * string) list) =
     let kvp = dict kvp
     if kvp.ContainsKey key then
@@ -39,9 +41,6 @@ module Request =
   let (|Params|) (req:HttpRequest) =
     req.Params |> nameValueCollections2List
   
-  let (|FormParams|) (stream:Stream) =
-      readText stream |> HttpUtility.ParseQueryString |> nameValueCollections2List
-
   let (|Headers|) (req:HttpRequest) =
     req.Headers |> nameValueCollections2List
 

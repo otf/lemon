@@ -25,8 +25,6 @@ module Request =
 
   val (|Params|) : HttpRequest -> (string * string) list
   
-  val (|FormParams|) : Stream -> (string * string) list
-
   val (|Headers|) : HttpRequest -> (string * string) list
  
   val existHeader : string -> (string * string) list -> bool
@@ -34,3 +32,5 @@ module Request =
   val readText : Stream -> string
 
   val readXml : Stream -> XElement
+
+  val readParameters : Stream -> (string * string) list
