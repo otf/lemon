@@ -39,7 +39,7 @@ module Request =
     List.ofArray pathes
 
   let (|Params|) (req:HttpRequest) =
-    req.Params |> nameValueCollections2List
+    req.QueryString |> nameValueCollections2List
   
   let (|Headers|) (req:HttpRequest) =
     req.Headers |> nameValueCollections2List
