@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Lemon</RootNamespace>
     <AssemblyName>Lemon</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <Name>Lemon</Name>
     <TargetFrameworkProfile />
   </PropertyGroup>
