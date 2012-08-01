@@ -36,16 +36,21 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Compile Include="UtilTest.fs" />
+    <Compile Include="RequestTest.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core" />
     <Reference Include="NaturalSpec">
-      <HintPath>..\packages\NaturalSpec.1.4.2.1\lib\NaturalSpec.dll</HintPath>
+      <HintPath>..\packages\NaturalSpec.1.4.5.1\lib\NaturalSpec.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -56,6 +61,7 @@
       <Project>{2b1e5401-aa33-43f2-877b-1a5dd5e6eda4}</Project>
       <Private>True</Private>
     </ProjectReference>
+    <Reference Include="System.Web" />
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	     Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,7 +1,8 @@
-﻿module RequestTest
+﻿module UtilTest
+
 
 open NaturalSpec
-
+open System
 open Lemon
 
 let hasTwo kvp = 
@@ -26,4 +27,15 @@ let ``last element is three``() =
   Given ["one"; "two"; "three"]
     |> When lastIsThree
     |> It should equal true
+    |> Verify
+
+[<Scenario>]
+let ``Convert a NameValueCollection to list`` () =
+  let col = System.Collections.Specialized.NameValueCollection ()
+  col.Add ("Id", "10")
+  col.Add ("Name", "otf")
+
+  Given col
+    |> When nameValueCollections2List
+    |> It should equal [("Id", "10"); ("Name", "otf")]
     |> Verify
