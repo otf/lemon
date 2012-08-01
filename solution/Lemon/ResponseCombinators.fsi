@@ -17,4 +17,3 @@ module ResponseModule =
   val xmlResponse : XElement -> Responser
   val setStatusCode : int -> Responser
   val setHeader : string -> string -> Responser
-

@@ -11,7 +11,7 @@ let hasTwo kvp =
 
 let lastIsThree kvp = 
   match kvp with
-  | Last ("three") -> true
+  | Last "three" -> true
   | _ -> false
 
 [<Scenario>]

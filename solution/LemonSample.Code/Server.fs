@@ -18,8 +18,6 @@
           let modelJson = sprintf "{\"name\":\"%s\", \"id\":\"%s\" }" model id |> JsonValue.Parse
           jsonResponse modelJson >> ok
 
-      | POST (req, body) & Headers (headers) 
-        when List.exists ((=) ("Content-Type", "application/xml")) headers
-          -> readXml body |> xmlResponse
+      | POST (req, body) & Headers (Has "Content-Type" "application/xml") -> readXml body |> xmlResponse
 
       | _ -> methodNotAllowed

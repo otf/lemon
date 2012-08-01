@@ -5,8 +5,8 @@ open System.Web
 
 type HttpHandler (server:Server) =
 
-  interface  IHttpHandler with
+  interface IHttpHandler with
     member x.IsReusable = true
-    member x.ProcessRequest(ctx: HttpContext) = 
+    member x.ProcessRequest (ctx:HttpContext) = 
       let wrapper = HttpContextWrapper ctx
       server wrapper.Request wrapper.Response |> ignore

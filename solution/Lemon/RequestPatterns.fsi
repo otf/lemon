@@ -6,7 +6,7 @@ open System.Web
 open System.Xml.Linq
 
 [<AutoOpen>]
-module RequestModule =
+module RequestPatterns =
 
   val (|RawUrl|) : Request -> string
 
@@ -20,14 +20,6 @@ module RequestModule =
 
   val (|DELETE|_|) : Request -> Request option
 
-  val (|Params|) : Request -> (string * string) list
+  val (|QueryParams|) : Request -> (string * string) list
   
   val (|Headers|) : Request -> (string * string) list
- 
-  val existHeader : string -> (string * string) list -> bool
-
-  val readText : Stream -> string
-
-  val readXml : Stream -> XElement
-
-  val readForms : Stream -> (string * string) list

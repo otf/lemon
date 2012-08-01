@@ -37,10 +37,12 @@
   <ItemGroup>
     <Compile Include="Lemon.fs" />
     <Compile Include="Util.fs" />
-    <Compile Include="RequestModule.fsi" />
-    <Compile Include="RequestModule.fs" />
-    <Compile Include="ResponseModule.fsi" />
-    <Compile Include="ResponseModule.fs" />
+    <Compile Include="RequestPatterns.fsi" />
+    <Compile Include="RequestPatterns.fs" />
+    <Compile Include="Body.fsi" />
+    <Compile Include="Body.fs" />
+    <Compile Include="ResponseCombinators.fsi" />
+    <Compile Include="ResponseCombinators.fs" />
     <Compile Include="ErrorHandler.fsi" />
     <Compile Include="ErrorHandler.fs" />
     <Compile Include="HttpHandler.fs" />
