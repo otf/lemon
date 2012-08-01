@@ -8,9 +8,9 @@ open Request
 
 module Response =
   
-  type Responser = HttpResponse -> HttpResponse
+  type Responser = HttpResponseBase -> HttpResponseBase
 
-  let setStatusCode code (resp: HttpResponse) =
+  let setStatusCode code (resp: HttpResponseBase) =
     resp.StatusCode <- code
     resp
 
@@ -20,11 +20,11 @@ module Response =
   let methodNotAllowed = setStatusCode 405
   let internalServerError = setStatusCode 500
 
-  let setHeader name value (resp:HttpResponse) =
+  let setHeader name value (resp:HttpResponseBase) =
     resp.AddHeader (name, value)
     resp
 
-  let response (body:string) (resp: HttpResponse) = 
+  let response (body:string) (resp: HttpResponseBase) = 
     resp.Write body
     resp
 

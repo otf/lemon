@@ -11,21 +11,21 @@ module Request =
 
   val (|Last|_|) : string list -> string option
 
-  val (|RawUrl|) : HttpRequest -> string
+  val (|RawUrl|) : HttpRequestBase -> string
 
-  val (|Url|) : HttpRequest -> string list
+  val (|Url|) : HttpRequestBase -> string list
 
-  val (|GET|_|) : HttpRequest -> HttpRequest option
+  val (|GET|_|) : HttpRequestBase -> HttpRequestBase option
 
-  val (|POST|_|) : HttpRequest -> (HttpRequest * Stream) option
+  val (|POST|_|) : HttpRequestBase -> (HttpRequestBase * Stream) option
 
-  val (|PUT|_|) : HttpRequest -> (HttpRequest * Stream) option
+  val (|PUT|_|) : HttpRequestBase -> (HttpRequestBase * Stream) option
 
-  val (|DELETE|_|) : HttpRequest -> HttpRequest option
+  val (|DELETE|_|) : HttpRequestBase -> HttpRequestBase option
 
-  val (|Params|) : HttpRequest -> (string * string) list
+  val (|Params|) : HttpRequestBase -> (string * string) list
   
-  val (|Headers|) : HttpRequest -> (string * string) list
+  val (|Headers|) : HttpRequestBase -> (string * string) list
  
   val existHeader : string -> (string * string) list -> bool
 

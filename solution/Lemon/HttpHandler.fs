@@ -10,6 +10,7 @@ type HttpHandler(server : Server) =
   interface  IHttpHandler with
     member x.IsReusable = true
     member x.ProcessRequest(ctx: HttpContext) = 
-      server ctx.Request ctx.Response |> ignore
+      let wrapper = HttpContextWrapper ctx
+      server wrapper.Request wrapper.Response |> ignore
 
 

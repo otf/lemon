@@ -7,7 +7,7 @@ open System.Xml.Linq
 
 module Response =
 
-  type Responser = HttpResponse -> HttpResponse
+  type Responser = HttpResponseBase -> HttpResponseBase
 
   val ok : Responser
   val noContent : Responser

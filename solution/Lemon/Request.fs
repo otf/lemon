@@ -6,7 +6,7 @@ module Request =
   open System.Web
   open System.Xml.Linq
   
-  type Server = HttpRequest -> HttpResponse -> HttpResponse
+  type Server = HttpRequestBase -> HttpResponseWrapper -> HttpResponseWrapper
 
   let nameValueCollections2List (rawHeaders: System.Collections.Specialized.NameValueCollection)  =
     [ for key in rawHeaders.Keys -> (key , rawHeaders.[key])]
@@ -32,37 +32,37 @@ module Request =
    else
      None
 
-  let (|RawUrl|) (req:HttpRequest) = req.RawUrl
+  let (|RawUrl|) (req:HttpRequestBase) = req.RawUrl
 
-  let (|Url|) (req:HttpRequest) =
+  let (|Url|) (req:HttpRequestBase) =
     let pathes = req.Url.LocalPath.Split ([| "/" |], StringSplitOptions.RemoveEmptyEntries)
     List.ofArray pathes
 
-  let (|Params|) (req:HttpRequest) =
+  let (|Params|) (req:HttpRequestBase) =
     req.QueryString |> nameValueCollections2List
   
-  let (|Headers|) (req:HttpRequest) =
+  let (|Headers|) (req:HttpRequestBase) =
     req.Headers |> nameValueCollections2List
 
-  let (|GET|_|) (req:HttpRequest) =
+  let (|GET|_|) (req:HttpRequestBase) =
     if req.HttpMethod = "GET" then
       Some req
     else
       None
 
-  let (|POST|_|) (req:HttpRequest) =
+  let (|POST|_|) (req:HttpRequestBase) =
     if req.HttpMethod = "POST" then
       Some (req, req.InputStream)
     else
       None
 
-  let (|PUT|_|) (req:HttpRequest) =
+  let (|PUT|_|) (req:HttpRequestBase) =
     if req.HttpMethod = "PUT" then
       Some (req, req.InputStream)
     else
       None
 
-  let (|DELETE|_|) (req:HttpRequest) =
+  let (|DELETE|_|) (req:HttpRequestBase) =
     if req.HttpMethod = "DELETE" then
       Some req
     else
