@@ -10,5 +10,3 @@ type HttpHandler (server:Server) =
     member x.ProcessRequest(ctx: HttpContext) = 
       let wrapper = HttpContextWrapper ctx
       server wrapper.Request wrapper.Response |> ignore
-
-

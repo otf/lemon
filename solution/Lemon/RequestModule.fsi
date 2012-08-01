@@ -8,10 +8,6 @@ open System.Xml.Linq
 [<AutoOpen>]
 module RequestModule =
 
-  val (|Has|_|) : string -> (string * string) list -> string option
-
-  val (|Last|_|) : string list -> string option
-
   val (|RawUrl|) : Request -> string
 
   val (|Url|) : Request -> string list
@@ -34,4 +30,4 @@ module RequestModule =
 
   val readXml : Stream -> XElement
 
-  val readParameters : Stream -> (string * string) list
+  val readForms : Stream -> (string * string) list

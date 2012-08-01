@@ -6,4 +6,3 @@
   type Response = HttpResponseBase
   type Responser = HttpResponseBase -> HttpResponseBase
   type Server = Request -> Responser
-
