@@ -9,7 +9,7 @@ module ErrorHandler =
     resp.TrySkipIisCustomErrors <- true
     resp
 
-  let errorHandler (server:Server) (handler:exn->Responser) (req:Request) = 
+  let errorHandler (handler:exn->Responser) (server:Server) (req:Request) = 
     try
       server req
     with ex ->
