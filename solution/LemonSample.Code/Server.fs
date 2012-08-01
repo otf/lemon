@@ -1,8 +1,6 @@
 ﻿module Server
 
   open Lemon
-  open Lemon.Request
-  open Lemon.Response
   open System.IO
   open System.Json
   

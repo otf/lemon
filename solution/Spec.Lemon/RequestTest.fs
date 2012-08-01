@@ -2,7 +2,7 @@
 
 open NaturalSpec
 
-open Lemon.Request
+open Lemon
 
 let hasTwo kvp = 
   match kvp with

@@ -1,13 +1,11 @@
 ﻿namespace Lemon
 
-module Request =
+module RequestModule =
   open System
   open System.IO
   open System.Web
   open System.Xml.Linq
   
-  type Server = HttpRequestBase -> HttpResponseWrapper -> HttpResponseWrapper
-
   let nameValueCollections2List (rawHeaders: System.Collections.Specialized.NameValueCollection)  =
     [ for key in rawHeaders.Keys -> (key , rawHeaders.[key])]
 
@@ -32,37 +30,37 @@ module Request =
    else
      None
 
-  let (|RawUrl|) (req:HttpRequestBase) = req.RawUrl
+  let (|RawUrl|) (req:Request) = req.RawUrl
 
-  let (|Url|) (req:HttpRequestBase) =
+  let (|Url|) (req:Request) =
     let pathes = req.Url.LocalPath.Split ([| "/" |], StringSplitOptions.RemoveEmptyEntries)
     List.ofArray pathes
 
-  let (|Params|) (req:HttpRequestBase) =
+  let (|Params|) (req:Request) =
     req.QueryString |> nameValueCollections2List
   
-  let (|Headers|) (req:HttpRequestBase) =
+  let (|Headers|) (req:Request) =
     req.Headers |> nameValueCollections2List
 
-  let (|GET|_|) (req:HttpRequestBase) =
+  let (|GET|_|) (req:Request) =
     if req.HttpMethod = "GET" then
       Some req
     else
       None
 
-  let (|POST|_|) (req:HttpRequestBase) =
+  let (|POST|_|) (req:Request) =
     if req.HttpMethod = "POST" then
       Some (req, req.InputStream)
     else
       None
 
-  let (|PUT|_|) (req:HttpRequestBase) =
+  let (|PUT|_|) (req:Request) =
     if req.HttpMethod = "PUT" then
       Some (req, req.InputStream)
     else
       None
 
-  let (|DELETE|_|) (req:HttpRequestBase) =
+  let (|DELETE|_|) (req:Request) =
     if req.HttpMethod = "DELETE" then
       Some req
     else

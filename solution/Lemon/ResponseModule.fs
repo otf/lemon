@@ -4,13 +4,10 @@ open System
 open System.IO
 open System.Web
 open System.Xml.Linq
-open Request
 
-module Response =
+module ResponseModule =
   
-  type Responser = HttpResponseBase -> HttpResponseBase
-
-  let setStatusCode code (resp: HttpResponseBase) =
+  let setStatusCode code (resp: Response) =
     resp.StatusCode <- code
     resp
 
@@ -20,11 +17,11 @@ module Response =
   let methodNotAllowed = setStatusCode 405
   let internalServerError = setStatusCode 500
 
-  let setHeader name value (resp:HttpResponseBase) =
+  let setHeader name value (resp:Response) =
     resp.AddHeader (name, value)
     resp
 
-  let response (body:string) (resp: HttpResponseBase) = 
+  let response (body:string) (resp: Response) = 
     resp.Write body
     resp
 

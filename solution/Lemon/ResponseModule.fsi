@@ -5,9 +5,8 @@ open System.IO
 open System.Web
 open System.Xml.Linq
 
-module Response =
-
-  type Responser = HttpResponseBase -> HttpResponseBase
+[<AutoOpen>]
+module ResponseModule =
 
   val ok : Responser
   val noContent : Responser

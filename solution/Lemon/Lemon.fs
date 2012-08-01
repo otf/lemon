@@ -2,4 +2,8 @@
 
   open System.Web
 
-  type Server = HttpRequestBase -> HttpResponseBase -> HttpResponseBase
+  type Request = HttpRequestBase
+  type Response = HttpResponseBase
+  type Responser = HttpResponseBase -> HttpResponseBase
+  type Server = Request -> Responser
+

@@ -36,10 +36,12 @@
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll')" />
   <ItemGroup>
     <Compile Include="Lemon.fs" />
-    <Compile Include="Request.fsi" />
-    <Compile Include="Request.fs" />
-    <Compile Include="Response.fsi" />
-    <Compile Include="Response.fs" />
+    <Compile Include="RequestModule.fsi" />
+    <Compile Include="RequestModule.fs" />
+    <Compile Include="ResponseModule.fsi" />
+    <Compile Include="ResponseModule.fs" />
+    <Compile Include="ErrorHandler.fsi" />
+    <Compile Include="ErrorHandler.fs" />
     <Compile Include="HttpHandler.fs" />
     <None Include="packages.config" />
   </ItemGroup>

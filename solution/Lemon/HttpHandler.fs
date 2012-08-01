@@ -2,10 +2,8 @@
 
 open System.Linq
 open System.Web
-open Request
-open Response
 
-type HttpHandler(server : Server) =
+type HttpHandler (server:Server) =
 
   interface  IHttpHandler with
     member x.IsReusable = true
