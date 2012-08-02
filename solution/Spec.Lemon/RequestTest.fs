@@ -1,6 +1,5 @@
 ﻿module RequestTest
 
-
 open NaturalSpec
 open Rhino.Mocks
 

@@ -21,7 +21,7 @@ module ResponseModule =
     resp.AddHeader (name, value)
     resp
 
-  let response (body:string) (resp: Response) = 
+  let response (body:string) (resp:Response) = 
     resp.Write body
     resp
 

@@ -6,7 +6,7 @@ module Body =
   open System.Web
   open System.Xml.Linq
   
-  let readText (st:Stream) = use reader = new StreamReader (st) in reader.ReadToEnd ()
+  let readText (st:Stream) = let reader = new StreamReader (st) in reader.ReadToEnd ()
 
   let readXml (st:Stream) = readText st |> XElement.Parse
 
