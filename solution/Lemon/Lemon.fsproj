@@ -43,6 +43,7 @@
     <Compile Include="Body.fs" />
     <Compile Include="ResponseCombinators.fsi" />
     <Compile Include="ResponseCombinators.fs" />
+    <Compile Include="StatusCodes.fs" />
     <Compile Include="ErrorHandler.fsi" />
     <Compile Include="ErrorHandler.fs" />
     <Compile Include="HttpHandler.fs" />

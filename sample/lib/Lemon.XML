@@ -89,6 +89,21 @@
 <member name="">
 
 </member>
+<member name="T:Lemon.ResponseCombinators">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
 <member name="">
 
 </member>
@@ -104,7 +119,22 @@
 <member name="">
 
 </member>
-<member name="T:Lemon.ResponseModule">
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Lemon.StatusCodes">
 
 </member>
 <member name="">

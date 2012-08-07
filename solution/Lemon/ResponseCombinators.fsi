@@ -6,13 +6,7 @@ open System.Web
 open System.Xml.Linq
 
 [<AutoOpen>]
-module ResponseModule =
-
-  val ok : Responser
-  val noContent : Responser
-  val notFound : Responser
-  val methodNotAllowed : Responser
-  val internalServerError : Responser
+module ResponseCombinators =
   val response : string -> Responser
   val xmlResponse : XElement -> Responser
   val setStatusCode : int -> Responser
