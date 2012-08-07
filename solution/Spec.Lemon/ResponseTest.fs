@@ -48,13 +48,10 @@ let ``Set header`` (kvp) =
 //  use ms = new MemoryStream ()
 //  use writer = new StreamWriter (ms)
 //  
-//  RhinoMocksExtensions.Expect<Response, string -> unit>(res, fun res -> writer.write)
-//    |> ignore
-//
+//  let write = (fun () -> writer.Write(""))
 //  let readAll (res:Response) = 
-//    res.Write( "aaaa")
-//    res.OutputStream.Seek (0L, SeekOrigin.Begin) |> ignore
-//    use reader = new StreamReader (res.OutputStream)
+//    ms.Seek (0L, SeekOrigin.Begin) |> ignore
+//    use reader = new StreamReader (ms)
 //    reader.ReadToEnd ()
 //
 //  Given res

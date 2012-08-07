@@ -1,6 +1,7 @@
 ﻿module Server
 
   open Lemon
+  open System
   open System.IO
   open System.Json
   
@@ -19,5 +20,7 @@
           jsonResponse modelJson >> ok
 
       | POST (req, body) & Headers (Has "Content-Type" "application/xml") -> readXml body |> xmlResponse
+
+      | GET(Url ["error"]) -> raise(Exception("エラーです"))
 
       | _ -> methodNotAllowed
