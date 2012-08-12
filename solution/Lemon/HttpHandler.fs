@@ -18,7 +18,8 @@ type AsyncHttpHandler (server:Server) =
 
   interface IHttpAsyncHandler with
     member x.IsReusable = handler.IsReusable
-    member x.ProcessRequest (ctx:HttpContext) = handler.ProcessRequest ctx
+    member x.ProcessRequest (ctx:HttpContext) =
+      raise(InvalidOperationException())
 
     member x.BeginProcessRequest (context:HttpContext, cb : AsyncCallback, extraData : obj) =
       action.BeginInvoke(context, cb, extraData)

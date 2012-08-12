@@ -4,6 +4,7 @@
   open System
   open System.IO
   open System.Json
+  open System.Threading
   
   let readJson (st:Stream) = readText st |> JsonValue.Parse
 
@@ -22,5 +23,9 @@
       | POST (req, body) & Headers (Has "Content-Type" "application/xml") -> readXml body |> xmlResponse
 
       | GET(Url ["error"]) -> raise(Exception("エラーです"))
+
+      | GET(Url ["wait"]) -> 
+          Thread.Sleep(30000)
+          response "complete!"
 
       | _ -> methodNotAllowed
