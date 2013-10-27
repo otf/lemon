@@ -5,6 +5,13 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Lemon", "Lemon\Lemon.fsproj
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Spec.Lemon", "Spec.Lemon\Spec.Lemon.fsproj", "{389DDD3F-BE0F-4321-9CAA-209EDCEFA2A6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F0CE114E-3FE5-4211-9E31-9103E1EA4A1F}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -64,7 +64,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <PropertyGroup>
-    <PostBuildEvent>copy /y /b "$(TargetDir)*.*" "$(ProjectDir)..\..\samples\lib\"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	     Other similar extension points exist, see Microsoft.Common.targets.
