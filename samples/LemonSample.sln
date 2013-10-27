@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LemonSample", "LemonSample\LemonSample.csproj", "{73003A15-D438-430E-A17B-D8FEE834E7A4}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LemonSample.Code", "LemonSample.Code\LemonSample.Code.fsproj", "{59BE7AB3-4B3F-47F6-A411-961A3B4B19B1}"
