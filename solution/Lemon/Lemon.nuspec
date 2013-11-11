@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Lemon</id>
+    <version>$version$</version>
+    <authors>otf</authors>
+    <licenseUrl>https://github.com/otf/lemon/blob/master/COPYING</licenseUrl>
+    <projectUrl>https://github.com/otf/lemon</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>This is a functional http library for F#.</summary>
+    <description>$description$</description>
+    <tags>functional f# library asp.net</tags>
+    <frameworkAssemblies>
+        <frameworkAssembly assemblyName="System.Web" targetFramework="net40" />
+        <frameworkAssembly assemblyName="System.Xml" targetFramework="net40" />
+        <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework="net40" />
+    </frameworkAssemblies>
+  </metadata>
+</package>
