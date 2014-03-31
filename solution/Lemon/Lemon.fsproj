@@ -52,6 +52,8 @@
     <Compile Include="ErrorHandler.fsi" />
     <Compile Include="ErrorHandler.fs" />
     <Compile Include="HttpHandler.fs" />
+    <Compile Include="HttpHandlerAdapters.fsi" />
+    <Compile Include="HttpHandlerAdapters.fs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
