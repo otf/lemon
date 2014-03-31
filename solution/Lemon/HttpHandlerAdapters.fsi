@@ -5,5 +5,5 @@ open System.Web
 open Lemon
 
 module HttpHandlerAdapters =
-  val adapt : #IHttpHandler -> Responser
+  val httpHandler : #IHttpHandler -> Responser
   val staticFile : Responser
