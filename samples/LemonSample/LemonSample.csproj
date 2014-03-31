@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="static\lemon.gif" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

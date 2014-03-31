@@ -1,6 +1,7 @@
 ﻿module Server
 
   open Lemon
+  open Lemon.HttpHandlerAdapters
   open System
   open System.IO
   open System.Json
@@ -27,5 +28,8 @@
       | GET(Url ["wait"]) -> 
           Thread.Sleep(30000)
           response "complete!"
+
+      | GET(Url ["static"; "lemon.gif"]) ->
+          staticFile
 
       | _ -> methodNotAllowed
