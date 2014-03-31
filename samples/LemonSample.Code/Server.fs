@@ -32,4 +32,7 @@
       | GET(Url ["static"; "lemon.gif"]) ->
           staticFile
 
+      | GET(Url ["page"; "Default.aspx"]) ->
+          pageFile
+
       | _ -> methodNotAllowed
