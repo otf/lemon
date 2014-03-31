@@ -11,4 +11,4 @@ module Body =
 
   val readXml : Stream -> XElement
 
-  val readForms : Stream -> (string * string) list
+  val readForms : Stream -> Map<string, string>

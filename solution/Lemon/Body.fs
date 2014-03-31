@@ -10,4 +10,4 @@ module Body =
 
   let readXml (st:Stream) = readText st |> XElement.Parse
 
-  let readForms (st:Stream) = readText st |> HttpUtility.ParseQueryString |> nameValueCollections2List
+  let readForms (st:Stream) = readText st |> HttpUtility.ParseQueryString |> nameValueCollections2Map

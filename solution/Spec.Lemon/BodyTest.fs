@@ -48,5 +48,5 @@ let ``Read a Forms`` () =
 
   Given stream
     |> When readForms
-    |> It should equal [("Id","10"); ("Name","otf")]
+    |> It should equal (Map [("Id","10"); ("Name","otf")])
     |> Verify

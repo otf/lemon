@@ -2,11 +2,10 @@
 
 [<AutoOpen>]
 module Util =
-  let nameValueCollections2List (rawHeaders: System.Collections.Specialized.NameValueCollection)  =
-    [ for key in rawHeaders.Keys -> (key , rawHeaders.[key])]
+  let nameValueCollections2Map (rawHeaders: System.Collections.Specialized.NameValueCollection)  =
+    Map([ for key in rawHeaders.Keys -> (key , rawHeaders.[key])])
 
-  let (|Has|_|) key (kvp : (string * string) list) =
-    let kvp = dict kvp
+  let (|Has|_|) key (kvp : Map<string, string>) =
     if kvp.ContainsKey key then
       kvp.[key] |> Some
     else

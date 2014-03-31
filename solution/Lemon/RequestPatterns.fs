@@ -13,10 +13,10 @@ module RequestPatterns =
     List.ofArray pathes
 
   let (|QueryParams|) (req:Request) =
-    req.QueryString |> nameValueCollections2List
+    req.QueryString |> nameValueCollections2Map
   
   let (|Headers|) (req:Request) =
-    req.Headers |> nameValueCollections2List
+    req.Headers |> nameValueCollections2Map
 
   let (|GET|_|) (req:Request) =
     if req.HttpMethod = "GET" then

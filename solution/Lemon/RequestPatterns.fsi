@@ -20,6 +20,6 @@ module RequestPatterns =
 
   val (|DELETE|_|) : Request -> Request option
 
-  val (|QueryParams|) : Request -> (string * string) list
+  val (|QueryParams|) : Request -> Map<string, string>
   
-  val (|Headers|) : Request -> (string * string) list
+  val (|Headers|) : Request -> Map<string, string>

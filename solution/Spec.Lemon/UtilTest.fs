@@ -17,7 +17,7 @@ let lastIsThree kvp =
 
 [<Scenario>]
 let ``list has a element``() =
-  Given [("one","ichi"); ("two","ni"); ("three","sann")]
+  Given (Map [("one","ichi"); ("two","ni"); ("three","sann")])
     |> When hasTwo
     |> It should equal true
     |> Verify
@@ -36,6 +36,6 @@ let ``Convert a NameValueCollection to list`` () =
   col.Add ("Name", "otf")
 
   Given col
-    |> When nameValueCollections2List
-    |> It should equal [("Id", "10"); ("Name", "otf")]
+    |> When nameValueCollections2Map
+    |> It should equal (Map [("Id", "10"); ("Name", "otf")])
     |> Verify
