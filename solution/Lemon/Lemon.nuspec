@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Lemon</id>
-    <version>1.3.0.0</version>
+    <version>1.4.0.0</version>
     <authors>otf</authors>
     <licenseUrl>https://github.com/otf/lemon/blob/master/COPYING</licenseUrl>
     <projectUrl>https://github.com/otf/lemon</projectUrl>
